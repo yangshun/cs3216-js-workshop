@@ -31,7 +31,8 @@ The Language of the Web
 ### Language and Syntax
 - Similar to C
 - Learn it yourself (:
-- But [beware...](https://www.destroyallsoftware.com/talks/wat) (from 1:22 onwards)
+- But [beware of wats...](https://www.destroyallsoftware.com/talks/wat) (from 1:22 onwards)
+- Read more about JS quirks [here](http://www.wtfjs.com/)
 
 ### Points to Note
 - Case-sensitive
