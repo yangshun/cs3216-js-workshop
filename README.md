@@ -105,6 +105,15 @@ var add10 = makeAdder(10);
 console.log(add5(2));  // 7
 console.log(add10(2)); // 12
 ```
+
+### Callbacks
+- Callback functions are derived from functional programming
+- A function is passed into another function as a parameter
+- Callback functions are used in: 
+  - Asynchronous executions
+  - In Event Listeners/Handlers
+  - In `setTimeout` and `setInterval` methods
+- ![Callback Joke](http://pbs.twimg.com/media/BLgE69jCMAAt6Dx.jpg)
 - Common beginner mistakes
 ```
 for (var i = 0; i < 5; i++) {
@@ -222,6 +231,7 @@ $(document).ready(function () {
   - [When does it make sense to use an MVC framework for JavaScript](http://www.quora.com/JavaScript-Frameworks/When-does-it-make-sense-to-use-an-MVC-framework-for-JavaScript)
 - Examples: [AngularJS](https://angularjs.org/), [EmberJS](http://emberjs.com/), [BackboneJS](http://backbonejs.org/). 
 - Bonus: Full stack JS framework - [MeteorJS](https://www.meteor.com/)
+- [JavaScript Framework Comparisons](http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/)
 
 ### JavaScript Resources
 - [DailyJS](http://dailyjs.com/)
