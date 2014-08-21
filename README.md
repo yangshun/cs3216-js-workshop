@@ -223,7 +223,14 @@ $(document).ready(function () {
 - Examples: [AngularJS](https://angularjs.org/), [EmberJS](http://emberjs.com/), [BackboneJS](http://backbonejs.org/). 
 - Bonus: Full stack JS framework - [MeteorJS](https://www.meteor.com/)
 
+### JavaScript Resources
+- [DailyJS](http://dailyjs.com/)
+- [Best Resources to Learn JavaScript](http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript)
+- [Must Watch Videos of JavaScript](https://github.com/bolshchikov/js-must-watch)
+
 ### Readings
+- [Eloquent JavaScript](http://eloquentjavascript.net/)
+- [Secrets of the JavaScript Ninja](http://jsninja.com/)
 - [JavaScript: The Definitive Guide](http://www.amazon.com/exec/obidos/ASIN/0596101996/wrrrldwideweb)
 - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/)
 - ![JavaScript Books Comparison](http://blog.notadomain.com/zbtn-2014-02/img/javascript-the-good-parts-the-definitive-guide.jpg)

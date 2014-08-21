@@ -45,8 +45,11 @@
       <div class="slides">
         <section>
 <h1>JavaScript: The Good, The Bad, The Future</h1>
+<p>By Tay Yang Shun</a></p>
 <p>
-  By <a href="http://yangshun.im">Tay Yang Shun</a> / <a href="http://twitter.com/yangshunz">@yangshunz</a>
+  <a href="http://facebook.com/yangshun"><i class="fa fa-facebook-square fa-3x"></i></a>&nbsp;
+  <a href="http://github.com/yangshun"><i class="fa fa-github-square fa-3x"></i></a>&nbsp;
+  <a href="http://twitter.com/yangshunz"><i class="fa fa-twitter-square fa-3x"></i></a>
 </p>
         </section>
 
@@ -230,9 +233,11 @@ for (var i = 0; i < 5; i++) {
 <h3>JS in the Browser</h3>
 <p>To run javascript in your HTML file, simply do:</p>
 <pre><code data-trim class="html">
-<script src="myscript.js"></script>
+<script src="myscript.js" type="text/template"></script>
 // or
-<script> console.log('Hello World!'); </script>
+<script type="text/template">
+  console.log('Hello World!');
+</script>
 </code></pre>
         </section>
 
@@ -337,8 +342,8 @@ $(document).ready(function () {
         <section data-markdown>
           <script type="text/template">
 ### DOM Injection
-- Beware of DOM injection when rendering user-submitted content on your webpage!
-- Use jQuery `.text()` method for encoding of special characters such as `<` and `>`
+- Beware of DOM injection when rendering <br>user-submitted content on your webpage!
+- Use jQuery `.text()` method for encoding <br>of special characters such as `<` and `>`
           </script>
         </section>
 
@@ -371,7 +376,19 @@ $(document).ready(function () {
 
         <section data-markdown>
           <script type="text/template">
+### JavaScript Resources
+- [DailyJS](http://dailyjs.com/)
+- [SuperheroJS](http://superherojs.com/)
+- [Best Resources to Learn JavaScript](http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript)
+- [Must Watch Videos of JavaScript](https://github.com/bolshchikov/js-must-watch)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
 ### Readings
+- [Eloquent JavaScript](http://eloquentjavascript.net/)
+- [Secrets of the JavaScript Ninja](http://jsninja.com/)
 - [JavaScript: The Definitive Guide](http://www.amazon.com/exec/obidos/ASIN/0596101996/wrrrldwideweb)
 - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/)
 - ![JavaScript Books Comparison](http://blog.notadomain.com/zbtn-2014-02/img/javascript-the-good-parts-the-definitive-guide.jpg)
