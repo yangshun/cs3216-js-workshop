@@ -113,6 +113,7 @@ console.log(add10(2)); // 12
   - Asynchronous executions
   - In Event Listeners/Handlers
   - In `setTimeout` and `setInterval` methods
+- Read more on JavaScript callbacks [here](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
 - ![Callback Joke](http://pbs.twimg.com/media/BLgE69jCMAAt6Dx.jpg)
 - Common beginner mistakes
 ```
