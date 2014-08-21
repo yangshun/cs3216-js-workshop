@@ -3,12 +3,13 @@ JavaScript
 The Language of the Web
 
 ### What this Workshop is About
-- **NOT** a crash course on JavaScript
 - JavaScript and what it can do
 - Kickstart your learning in JavaScript
+- **NOT** a crash course on JavaScript
 
 ### Introduction
 - Also known as Mocha, LiveScript, JScript, ECMAScript
+- Developed in an extremely short amount of time
 - Scripting language
   - Not compiled, interpreted and executed on-the-fly
 - Dynamic typing
@@ -82,10 +83,10 @@ a = b + c[1].push(a) // KABOOM!
 - The function defined in the closure 'remembers' the environment in which it was created.
 ```
 function makeFunc () {
-  var name = 'Mozilla';
   function displayName() {
     alert(name);
   }
+  var name = 'CS3216 Rocks!';
   return displayName;
 }
 
@@ -146,8 +147,8 @@ for (var i = 0; i < 5; i++) {
 - Retrieving DOM elements using JavaScript:
 ```
 document.getElementById('some-id');
-document.getElementByClassName('some-class');
-document.getElementByTagName('some-tag');
+document.getElementsByClassName('some-class');
+document.getElementsByTagName('some-tag');
 ```
 - Try this on IVLE class roster!
 ```
@@ -159,7 +160,7 @@ for (var i = 0; i < rows.length; i++) {
 }
 ```
 
-### Event Handling
+### Event Binding
 - Attach functions to events
   - Examples of events: `click`, `focus`, `blur`, `hover`, `change`, `keydown`, etc
 ```
@@ -218,7 +219,7 @@ $(document).ready(function () {
 ### JavaScript Tools
 - [**UnderscoreJS**](http://underscorejs.org/)
   - A library of functional programming helpers, such as `map`, `filter`, `reduce`, etc
-  - A must use for functional programmers
+  - Recommended for <strike>functional</strike> all programmers
 - [**RequireJS**](http://requirejs.org/)
   - Forces you to write modular javascript
   - Handles nested dependencies

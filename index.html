@@ -56,9 +56,9 @@
         <section>
 <h3>What this workshop is about</h3>
 <ul>
-  <li><strong>NOT</strong> a crash course on JavaScript</li>
   <li>JavaScript and what it can do</li>
   <li>Kickstart your learning of JavaScript</li>
+  <li><strong>NOT</strong> a crash course on JavaScript</li>
 </ul>
         </section>
 
@@ -66,7 +66,7 @@
           <script type="text/template">
 ### Introduction
 - Also known as Mocha, LiveScript, JScript, ECMAScript
-- The language of the web
+- Developed in an extremely short amount of time
 - Scripting language
   - Not compiled, interpreted and executed on-the-fly
 - Dynamic typing
@@ -178,10 +178,10 @@ a = b + c[1].push(a) // KABOOM!
 - The function defined in the closure 'remembers'<br> the environment in which it was created.
 <pre><code data-trim class="javascript">
 function makeFunc () {
-    var name = 'Mozilla';
     function displayName() {
       alert(name);
     }
+    var name = 'CS3216 Rocks!';
     return displayName;
 }
 var myFunc = makeFunc();
@@ -263,8 +263,8 @@ for (var i = 0; i < 5; i++) {
 <p>Retrieving DOM elements using JavaScript</p>
 <pre><code data-trim class="javascript">
 document.getElementById('some-id');
-document.getElementByClassName('some-class');
-document.getElementByTagName('some-tag');
+document.getElementsByClassName('some-class');
+document.getElementsByTagName('some-tag');
 </code></pre>
 <p>Try this on your IVLE class roster!</p>
 <pre><code data-trim class="javascript">
@@ -338,7 +338,7 @@ $(document).ready(function () {
 
         <section data-markdown>
           <script type="text/template">
-### jQuery - Event Handling
+### jQuery - Event Binding
 | Vanilla | jQuery |
 | --- | --- |
 |`<div class="clickable" onclick="handleClick();"></div>` | `$('div').click(function() { ... });` |
@@ -369,7 +369,7 @@ $(document).ready(function () {
 ### JavaScript Tools
 - [**UnderscoreJS**](http://underscorejs.org/)
   - A library of functional programming helpers,<br>such as `map`, `filter`, `reduce`, etc
-  - A must use for functional programmers
+  - A must use for <strike>functional</strike> all programmers
 - [**RequireJS**](http://requirejs.org/)
   - Forces you to write modular javascript
   - Handles nested dependencies
