@@ -13,7 +13,7 @@ The Language of the Web
   - Not compiled, interpreted and executed on-the-fly
 - Dynamic typing
 - Supports object-oriented, imperative and functional programming styles
-- Despite its name, it has nothing to do with Java.
+- Despite its name, it has nothing to do with Java
 
 ### What can JavaScript do?
 - Provides interactivity to web applications
@@ -23,7 +23,8 @@ The Language of the Web
 - Can be used in an application's back end using [NodeJS](http://nodejs.org/)
 
 ### Getting Started
-- No installation needed! (Unless you're doing Node)
+- No installation needed!
+  - Unless you're doing Node
 - JavaScript comes with all browsers. Yes, even IE!
 - Simply fire up your browser's console
 
@@ -40,7 +41,7 @@ The Language of the Web
 - Variable scoping
   - Blocks do not have scope
   - Only functions do
-  - Globals variables
+  - Global variables
 
 ### Use Your Semicolons
 - Automatic Semicolon Insertion (ASI)
@@ -54,7 +55,6 @@ a = b + c; foo() // All is good
 ```
 - However, ASI is only applied if the parser needs to do so in order to make sense of the code in question.
 
-### Use Your Semicolons
 ```
 // Before ASI
 a = b + c
@@ -67,7 +67,7 @@ a = b + c[1].push(a) // KABOOM!
 ![Use Semicolons](http://davidwalsh.name/demo/javascript-semicolons.png)
 
 ### Variable Scoping
-- Variables without the `var` keyword:
+- Declaring variables without the `var` keyword:
 ```
 > var foo = function () { bar = 1; }
 > foo();
@@ -80,10 +80,9 @@ a = b + c[1].push(a) // KABOOM!
 - Closures are functions that refer to independent variables.
 - The function defined in the closure 'remembers' the environment in which it was created.
 ```
-function makeFunc() {
-  var name = "Mozilla";
+function makeFunc () {
+  var name = 'Mozilla';
   function displayName() {
-    functino
     alert(name);
   }
   return displayName;
@@ -94,8 +93,8 @@ myFunc();
 ```
 - A function factory can create closures with different environments
 ```
-function makeAdder(x) {
-  return function(y) {
+function makeAdder (x) {
+  return function (y) {
     return x + y;
   };
 }
@@ -106,7 +105,7 @@ var add10 = makeAdder(10);
 console.log(add5(2));  // 7
 console.log(add10(2)); // 12
 ```
-- Common newbie mistakes
+- Common beginner mistakes
 ```
 for (var i = 0; i < 5; i++) {
   setTimeout(function () {
@@ -150,6 +149,8 @@ for (var i = 0; i < rows.length; i++) {
 ```
 
 ### Event Handling
+- Attach functions to events
+  - Examples of events: `click`, `focus`, `blur`, `hover`, `change`, `keydown`, etc
 ```
 <div class="clickable" onclick="handleClick();"></div>
 <div class="focusable" onfocus="handleFocus();"></div>
@@ -195,8 +196,8 @@ $(document).ready(function () {
 | `<div class="keyable" onkeyup="handleKeyup();"></div>` | `$('div').on('keyup', function () { ... })` |
 
 #### Animations
-- Comes with some handy animations including: `fadeIn`, `fadeOut`, `hide`, `slideUp`
-- JavaScript animations are frowned upon
+- jQuery comes with some handy animations including: `fadeIn`, `fadeOut`, `hide`, `slideUp`
+- jQUery animations are **slow**
 - Use CSS3 animations instead
 
 ### DOM Injection
@@ -206,7 +207,7 @@ $(document).ready(function () {
 ### JavaScript Tools
 - [**UnderscoreJS**](http://underscorejs.org/)
   - A library of functional programming helpers, such as `map`, `filter`, `reduce`, etc
-  - A must use for 
+  - A must use for functional programmers
 - [**RequireJS**](http://requirejs.org/)
   - Forces you to write modular javascript
   - Handles nested dependencies

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to JavaScript</title>
+
+    <meta name="description" content="How to make the most out of JavaScript">
+    <meta name="author" content="Tay Yang Shun">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="revealjs/css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+<h1>JavaScript: The Good, The Bad, The Future</h1>
+<p>
+  By <a href="http://yangshun.im">Tay Yang Shun</a> / <a href="http://twitter.com/yangshunz">@yangshunz</a>
+</p>
+        </section>
+
+        <section>
+<h3>What this workshop is about</h3>
+<ul>
+  <li><strong>NOT</strong> a crash course on JavaScript</li>
+  <li>JavaScript and what it can do</li>
+  <li>Kickstart your learning of JavaScript</li>
+</ul>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Introduction
+- Also known as Mocha, LiveScript, JScript, ECMAScript
+- The language of the web
+- Scripting language
+  - Not compiled, interpreted and executed on-the-fly
+- Dynamic typing
+- Supports object-oriented, imperative and <br>functional programming styles
+- Despite its name, it has nothing to do with Java
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### What can JavaScript do?
+- Provides interactivity to web applications
+- Mainly executed in the browser to:
+  - Manipulate DOM elements
+  - Load content into the document without reloading
+- Can be used in an application back end via [NodeJS](http://nodejs.org/)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Getting Started
+- No installation needed! 
+  - Unless you're using Node
+- JavaScript comes with all browsers. Yes, even IE!
+- Simply fire up your browser's console
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Language and Syntax
+- Similar to C
+- Learn it yourself <i class="fa fa-smile-o"></i>
+- But [beware of wats...](https://www.destroyallsoftware.com/talks/wat) (from 1:22 onwards)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Points to Note
+- Case-sensitive
+  - `getElementById !== getElementByid`
+- Semicolons are optional
+  - But please add them
+- Variable scoping
+  - Blocks do not have scope
+  - Only functions do
+  - Beware of global variables
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Use Your Semicolons
+- JS parser does Automatic Semicolon Insertion (ASI)
+<pre><code data-trim class="javascript">
+// Before ASI
+a = b + c
+foo()
+// After ASI
+a = b + c; foo() // All is good
+</code>
+</pre>
+
+- However, ASI is only applied if the parser<br>needs to do so in order to make sense<br>of the code in question
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Use Your Semicolons
+- However, if your code looks like this...
+<pre><code data-trim class="javascript">
+// Before ASI
+a = b + c
+[1].push(a)
+// After ASI
+a = b + c[1].push(a) // KABOOM!
+</code></pre>
+
+- ASI is not applied because without the semicolon<br>the code still makes sense
+- Just use your semicolons. Thanks
+          </script>
+        </section>
+
+        <section data-background="http://davidwalsh.name/demo/javascript-semicolons.png" data-background-size="contain">
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+          ### Variable Scoping
+- Declaring variables without the `var` keyword:
+<pre><code data-trim class="javascript">
+> var foo = function () { bar = 1; }
+> foo();
+> console.log(bar); // bar is now a global variable
+1
+</code></pre>
+- You almost never want to use globals
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Closures
+- Closures are functions that refer to independent variables.
+- The function defined in the closure 'remembers'<br> the environment in which it was created.
+<pre><code data-trim class="javascript">
+function makeFunc () {
+    var name = 'Mozilla';
+    function displayName() {
+      alert(name);
+    }
+    return displayName;
+}
+var myFunc = makeFunc();
+myFunc();
+</code></pre>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Closures
+- A function factory can create closures with<br> different environments
+<pre><code data-trim class="javascript">
+function makeAdder (x) {
+    return function (y) {
+      return x + y;
+    };
+}
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+</code></pre>
+          </script>
+        </section>
+
+        <section>
+<h3>Closures</h3>
+<p>Mistakes that many beginners make</p>
+<pre><code data-trim class="javascript">
+for (var i = 0; i < 5; i++) {
+    setTimeout(function () {
+      console.log(i);
+    }, i * 1000);
+}
+// vs
+for (var i = 0; i < 5; i++) {
+    function print (x) {
+      setTimeout(function () {
+        console.log(x);
+      }, x * 1000);
+    }
+    print(i);
+}
+</code></pre>
+          </script>
+        </section>
+
+        <section>
+<h3>JS in the Browser</h3>
+<p>To run javascript in your HTML file, simply do:</p>
+<pre><code data-trim class="html">
+<script src="myscript.js"></script>
+// or
+<script> console.log('Hello World!'); </script>
+</code></pre>
+        </section>
+
+        <section>
+<h3>Manipulating DOM</h3>
+<p>Retrieving DOM elements using JavaScript</p>
+<pre><code data-trim class="javascript">
+document.getElementById('some-id');
+document.getElementByClassName('some-class');
+document.getElementByTagName('some-tag');
+</code></pre>
+<p>Try this on your IVLE class roster!</p>
+<pre><code data-trim class="javascript">
+var rows = document.querySelectorAll('tr[class*="dataGridCtrl-Alter"], 
+  tr[class*="dataGridCtrl-Item"]');
+for (var i = 0; i < rows.length; i++) {
+  rows[i].childNodes[3].innerHTML = 'Nala Cat';
+  var img = rows[i].querySelectorAll('img')[0];
+  img.src = 'http://nalacat.com/wp-content/uploads/2013/01/photo-2.jpg';
+}
+</code></pre>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Event Handling
+- Attach functions to events
+  - Examples of events: `click`, `focus`, `blur`, `hover`, `change`, `keydown`, etc
+<pre><code class="html"><div class="clickable" onclick="handleClick();"></div>
+<div class="focusable" onfocus="handleFocus();"></div>
+<div class="keyable" onkeyup="handleKeyup();"></div>
+function handleClick() { ... }
+function handleFocus() { ... }
+function handleKeyup() { ... }
+</code></pre>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Vanilla JS
+- Vanilla JS is a fast, lightweight, cross-platform framework for building incredible, powerful JavaScript applications
+- Used by Facebook, Google, Twitter, YouTube, Yahoo, Wikipedia, etc
+- In fact, Vanilla JS is already used on more websites than jQuery, Prototype JS, MooTools, YUI, and Google Web Toolkit - combined
+- Download the source [**here**](http://vanilla-js.com/)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### jQuery
+- jQuery is a cross-platform JavaScript library designed<br>to simplify the client-side scripting of HTML
+- Write less, do more
+- Use either the `jQuery` or `$` object
+- Get the source [**here**](http://code.jquery.com/jquery-1.11.0.min.js)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### jQuery Basics
+```
+$(document).ready(function () {
+  // Do your stuff 
+});
+```
+- Have to wait for DOM to load before you start manipulating it
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### jQuery - Getting DOM
+| Vanilla | jQuery |
+| --- | --- |
+| `document.getElementById('some-id')` | `$('#some-id');` |
+| `document.getElementByClassName('some-class')` | `$('.some-class');` |
+| `document.getElementByTagName('some-tag')` | `$('some-tag');` |
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### jQuery - Event Handling
+| Vanilla | jQuery |
+| --- | --- |
+|`<div class="clickable" onclick="handleClick();"></div>` | `$('div').click(function() { ... });` |
+| `<div class="focusable" onfocus="handleFocus();"></div>` | `$('div').focus(function() { ... });` |
+| `<div class="keyable" onkeyup="handleKeyup();"></div>` | `$('div').on('keyup', function() { ... });` |
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### jQuery Animations
+- jQuery comes with some handy animations including: `fadeIn`, `fadeOut`, `hide`, `slideUp`
+- However, jQuery animations are **SLOW**
+- Use CSS3 animations or other JavaScript animation libraries instead
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### DOM Injection
+- Beware of DOM injection when rendering user-submitted content on your webpage!
+- Use jQuery `.text()` method for encoding of special characters such as `<` and `>`
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### JavaScript Tools
+- [**UnderscoreJS**](http://underscorejs.org/)
+  - A library of functional programming helpers,<br>such as `map`, `filter`, `reduce`, etc
+  - A must use for functional programmers
+- [**RequireJS**](http://requirejs.org/)
+  - Forces you to write modular javascript
+  - Handles nested dependencies
+- [**Bower**](http://bower.io/)
+  - A package manager, not a library
+  - Keeps your libraries structured
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### JavaScript Frameworks
+- Why use front end MVC frameworks?
+  - Prevent DOM manipulation logic from being intermingled with application logic and network requests
+  - Better organziation of front end code
+  - [When does it make sense to use an MVC framework for JavaScript](http://www.quora.com/JavaScript-Frameworks/When-does-it-make-sense-to-use-an-MVC-framework-for-JavaScript)
+- Examples: [AngularJS](https://angularjs.org/), [EmberJS](http://emberjs.com/), [BackboneJS](http://backbonejs.org/). 
+- Bonus: Full stack JS framework - [MeteorJS](https://www.meteor.com/)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### Readings
+- [JavaScript: The Definitive Guide](http://www.amazon.com/exec/obidos/ASIN/0596101996/wrrrldwideweb)
+- [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/)
+- ![JavaScript Books Comparison](http://blog.notadomain.com/zbtn-2014-02/img/javascript-the-good-parts-the-definitive-guide.jpg)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+### References
+- [JavaScript:The World Most Misunderstood Programming Language](http://javascript.crockford.com/javascript.html)
+- [Douglas Crockford: The JavaScript Programming Language](http://www.youtube.com/watch?v=v2ifWcnQs6M)
+- [Semicolons](http://dailyjs.com/2012/04/19/semicolons/)
+- [The Truth About Semicolons in JavaScript](http://davidwalsh.name/javascript-semicolons)
+- [JavaScript Function Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures)
+          </script>
+        </section>
+
+        <section>
+<h2>Thank You!</h2>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="revealjs/lib/js/head.min.js"></script>
+    <script src="revealjs/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
