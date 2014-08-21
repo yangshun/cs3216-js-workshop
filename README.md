@@ -225,6 +225,7 @@ $(document).ready(function () {
 
 ### JavaScript Resources
 - [DailyJS](http://dailyjs.com/)
+- [SuperheroJS](http://superherojs.com/)
 - [Best Resources to Learn JavaScript](http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript)
 - [Must Watch Videos of JavaScript](https://github.com/bolshchikov/js-must-watch)
 
